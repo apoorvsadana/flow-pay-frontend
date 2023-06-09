@@ -1,5 +1,5 @@
 {
-  "name": "fcl-quickstart",
+  "name": "flowpay",
   "private": true,
   "scripts": {
     "dev": "next dev",
