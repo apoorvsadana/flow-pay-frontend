@@ -1,97 +1,58 @@
-/* Green Light scheme (Default) */
-/* Can be forced with data-theme="light" */
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --primary: #00ee8a;
-  --primary-hover: #00ce78;
-  --primary-focus: rgba(67, 160, 71, 0.125);
-  --primary-inverse: #FFF;
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  font-family: Inter;
 }
 
-/* Green Dark scheme (Auto) */
-/* Automatically enabled if user has Dark mode enabled */
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --primary: #00ee8a;
-    --primary-hover: #00ce78;
-    --primary-focus: rgba(67, 160, 71, 0.25);
-    --primary-inverse: #FFF;
+@keyframes barWidth {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 100%;
+  }
+  75% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
   }
 }
-
-/* Green Dark scheme (Forced) */
-/* Enabled if forced with data-theme="dark" */
-[data-theme="dark"] {
-  --primary: #00ee8a;
-  --primary-hover: #00ce78;
-  --primary-focus: rgba(67, 160, 71, 0.25);
-  --primary-inverse: #FFF;
+@keyframes barWidth2 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
 }
-
-/* Green (Common styles) */
-:root {
-  --form-element-active-border-color: var(--primary);
-  --form-element-focus-color: var(--primary-focus);
-  --switch-color: var(--primary-inverse);
-  --switch-checked-background-color: var(--primary);
-}
-
-button {
-  font-weight: bold;
-}
-
-h1, h2, gh3 {
-  margin-bottom: 0;
-}
-
-.card {
-  margin:0;
-  padding: 1em 2em;
-}
-
-.container, main {
-  margin-top:0;
-  padding-top:0;
-}
-
-.mb-1 {
-  margin-bottom:1em;
-}
-.mb-2 {
-  margin-bottom:2em;
-}
-
-.accent-border {
-  border: 1px solid var(--primary);
-}
-
-.container.header {
-  margin-bottom: 30px;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
-.card {
-  border: 1px solid var(--primary);
-  border-radius:5px;
-  margin: 10px 0px;
-}
-
-.tx {
-  margin-bottom: 2em;
-
-}
-.txId {
-  font-family:monospace;
-  margin-right:10px;
-}
-
-footer.container {
-  margin-top:5em;
+.horizontal-bar-wrap {
+  height: 4px;
+  width: 100%;
+  width: 100vw;
+  .bar {
+    position: relative;
+    width: 0%;
+    height: 100%;
+    margin: 0 auto;
+    animation: barWidth;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    &.bar1 {
+      animation-delay: 0s;
+      background: #00d47b;
+      top: 0;
+      z-index: 1;
+    }
+  }
 }
